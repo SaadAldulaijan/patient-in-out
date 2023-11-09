@@ -28,6 +28,8 @@ $(document).ready(() => {
             numberInBedsSpanElement.text(localStorage["countInBeds"]);
         }
 
+
+        // ====== Toggle Text  
         var textFromLocalStorage = localStorage.getItem('text-to-be-toggled');
         if (textFromLocalStorage == null) {
             $('#toggled-text-span').text('');
@@ -58,11 +60,12 @@ $(document).ready(() => {
         countInBeds = 0;
     });
 
+    
 
-
-
-
-
+    
+    
+    
+    // ====== Toggle Text  
     $('#toggle-btn').click(() => {
         var textFromLocalStorage = localStorage.getItem('text-to-be-toggled');
         if (textFromLocalStorage == null) {
