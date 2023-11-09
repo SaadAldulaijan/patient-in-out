@@ -27,10 +27,17 @@ $(document).ready(() => {
         if (numberInBedsSpanElement !== localStorage["countInBeds"]) {
             numberInBedsSpanElement.text(localStorage["countInBeds"]);
         }
+
+        var textFromLocalStorage = localStorage.getItem('text-to-be-toggled');
+        if (textFromLocalStorage == null) {
+            $('#toggled-text-span').text('');
+        } else {
+            $('#toggled-text-span').text(textFromLocalStorage);
+        }
     }, 100);
 
     function loadCounterFromLocalStorage() {
-        
+
         var countInBedFromLocalStorage = localStorage.getItem('countInBeds');
         if (countInBedFromLocalStorage == null || countInBedFromLocalStorage == undefined) {
             // there is no counter on local storage
@@ -51,5 +58,19 @@ $(document).ready(() => {
         countInBeds = 0;
     });
 
-    
+
+
+
+
+
+    $('#toggle-btn').click(() => {
+        var textFromLocalStorage = localStorage.getItem('text-to-be-toggled');
+        if (textFromLocalStorage == null) {
+            localStorage.setItem('text-to-be-toggled', 'something urgent ...');
+        } else {
+            localStorage.removeItem('text-to-be-toggled');
+        }
+    })
+
+
 });
